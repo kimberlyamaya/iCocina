@@ -1,25 +1,23 @@
-
-
 function recipeLookup(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    var selectCategory = document.querySelector('select[name="cuisine"]').value
-    var selectDifficulty = document.querySelector('select[name="difficulty"]').value
+  var selectCategory = document.querySelector('select[name="cuisine"]').value;
+  var selectDifficulty = document.querySelector(
+    'select[name="difficulty"]'
+  ).value;
 
-    //console.log(category)
-    fetch("/api/recipes/"+selectCategory+"/"+selectDifficulty)
-    .then(response => response.json()).then(data => {
-         // populate view with data
-    });
-        //return response.json()
-    /*}).then (data => {
+  window.location.href = "/recipe/" + selectCategory + "/" + selectDifficulty;
+
+  //   fetch("/recipe/" + selectCategory + "/" + selectDifficulty);
+  //return response.json()
+  /*}).then (data => {
         //document.location.replace("/api/recipes/"+selectCategory+"/"+selectDifficulty);
         console.log(data)
     })*/
-
-
-
-
 }
 
-document.querySelector('#submit-recipe').addEventListener('click', recipeLookup)
+document.querySelector(".searchField").addEventListener("submit", recipeLookup);
+
+// document
+//   .querySelector("#submit-recipe")
+//   .addEventListener("click", recipeLookup);
